@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 21st Birthday, My Love 💕</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roseGold: '#B76E79',
+                        blush: '#FFF0F5',
+                        deepRose: '#881337',
+                        warmGold: '#D4AF37',
+                        softPlum: '#4A154B'
+                    },
+                    fontFamily: {
+                        script: ['Dancing Script', 'cursive'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Keyframe Animations & Glassmorphism */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8)); }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+        .animate-glow {
+            animation: pulseGlow 4s infinite;
+        }
+        
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .glass-card-dark {
+            background: rgba(45, 20, 35, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 215, 230, 0.2);
+        }
+
+        /* Perspective & Flip Card Effect */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff5f7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f472b6;
+            border-radius: 9999px;
+        }
+
+        /* Canvas Overlay */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 text-slate-800 font-sans min-h-screen relative overflow-x-hidden selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Interactive Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 py-8 md:py-16 space-y-16 md:space-y-24">
+
+        <!-- Header / Hero Section -->
+        <header class="text-center space-y-6 pt-6 md:pt-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-100/80 border border-rose-200 text-rose-800 text-sm font-medium tracking-wide shadow-sm animate-bounce">
+                <i class="fa-solid font-bold fa-heart text-rose-500"></i>
+                <span>Happy Belated 21st Birthday, My Beautiful Wife</span>
+                <i class="fa-solid font-bold fa-heart text-rose-500"></i>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-slate-900 tracking-tight leading-tight">
+                To the Love of My Life,<br/>
+                <span class="font-script text-5xl sm:text-7xl md:text-8xl bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 bg-clip-text text-transparent block mt-2 animate-glow">
+                    Welcome to Chapter 21
+                </span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed font-light px-4">
+                Even though your birthday passed a few days ago, my love for you is something we celebrate every single day. 
+                This little corner of the internet was built just for you—a safe haven whenever you need to feel seen, cherished, and reminded of how deeply you are adored.
+            </p>
+
+            <div class="flex justify-center gap-4 pt-2">
+                <button onclick="scrollToSection('open-when')" class="px-6 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium shadow-lg shadow-rose-300/50 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+                    <i class="fa-solid fa-envelope-open-text"></i> Open Letters
+                </button>
+                <button onclick="scrollToSection('cherished')" class="px-6 py-3 rounded-full bg-white/90 hover:bg-white text-rose-900 border border-rose-200 font-medium shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+                    <i class="fa-solid fa-sparkles text-amber-500"></i> Explore Cards
+                </button>
+            </div>
+        </header>
+
+        <!-- Feature 1: Why You Are Cherished (Interactive Flip Cards) -->
+        <section id="cherished" class="space-y-8 scroll-mt-10">
+            <div class="text-center space-y-2">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">Reasons You Are Cherished</h2>
+                <p class="text-slate-500 text-sm md:text-base">Click or tap any card to reveal what makes you so irreplaceable to me.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="perspective-1000 h-64 cursor-pointer group" onclick="flipCard(this)">
+                    <div class="transform-style-3d relative w-full h-full rounded-2xl shadow-md group-hover:shadow-xl transition-shadow">
+                        <!-- Front -->
+                        <div class="backface-hidden absolute inset-0 glass-card rounded-2xl p-6 flex flex-col justify-between items-center text-center border-2 border-rose-100">
+                            <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl mt-4">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-slate-800">Your Radiant Light</h3>
+                                <p class="text-xs text-rose-400 mt-1 uppercase tracking-wider font-semibold">Tap to turn over</p>
+                            </div>
+                            <span class="text-xs text-slate-400">Card 01</span>
+                        </div>
+                        <!-- Back -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-600 text-white rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-3">
+                            <i class="fa-solid fa-quote-left text-2xl text-rose-200"></i>
+                            <p class="text-sm font-light leading-relaxed">
+                                "Even on your quietest days, your presence illuminates every room you step into. You make the world warmer just by being in it."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="perspective-1000 h-64 cursor-pointer group" onclick="flipCard(this)">
+                    <div class="transform-style-3d relative w-full h-full rounded-2xl shadow-md group-hover:shadow-xl transition-shadow">
+                        <!-- Front -->
+                        <div class="backface-hidden absolute inset-0 glass-card rounded-2xl p-6 flex flex-col justify-between items-center text-center border-2 border-rose-100">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl mt-4">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-slate-800">Your Gentle Soul</h3>
+                                <p class="text-xs text-rose-400 mt-1 uppercase tracking-wider font-semibold">Tap to turn over</p>
+                            </div>
+                            <span class="text-xs text-slate-400">Card 02</span>
+                        </div>
+                        <!-- Back -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 bg-gradient-to-br from-amber-500 to-rose-600 text-white rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-3">
+                            <i class="fa-solid fa-quote-left text-2xl text-amber-200"></i>
+                            <p class="text-sm font-light leading-relaxed">
+                                "The compassion and kindness you carry in your heart are breathtaking. You love deeply, and being loved by you is the greatest privilege of my life."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="perspective-1000 h-64 cursor-pointer group" onclick="flipCard(this)">
+                    <div class="transform-style-3d relative w-full h-full rounded-2xl shadow-md group-hover:shadow-xl transition-shadow">
+                        <!-- Front -->
+                        <div class="backface-hidden absolute inset-0 glass-card rounded-2xl p-6 flex flex-col justify-between items-center text-center border-2 border-rose-100">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xl mt-4">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-slate-800">My Safe Haven</h3>
+                                <p class="text-xs text-rose-400 mt-1 uppercase tracking-wider font-semibold">Tap to turn over</p>
+                            </div>
+                            <span class="text-xs text-slate-400">Card 03</span>
+                        </div>
+                        <!-- Back -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-3">
+                            <i class="fa-solid fa-quote-left text-2xl text-purple-200"></i>
+                            <p class="text-sm font-light leading-relaxed">
+                                "With you, I can completely be myself. Your arms are my favorite place to land at the end of a long day."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="perspective-1000 h-64 cursor-pointer group" onclick="flipCard(this)">
+                    <div class="transform-style-3d relative w-full h-full rounded-2xl shadow-md group-hover:shadow-xl transition-shadow">
+                        <!-- Front -->
+                        <div class="backface-hidden absolute inset-0 glass-card rounded-2xl p-6 flex flex-col justify-between items-center text-center border-2 border-rose-100">
+                            <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-xl mt-4">
+                                <i class="fa-solid fa-face-smile-beam"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-slate-800">Your Laughter</h3>
+                                <p class="text-xs text-rose-400 mt-1 uppercase tracking-wider font-semibold">Tap to turn over</p>
+                            </div>
+                            <span class="text-xs text-slate-400">Card 04</span>
+                        </div>
+                        <!-- Back -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-500 text-white rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-3">
+                            <i class="fa-solid fa-quote-left text-2xl text-pink-200"></i>
+                            <p class="text-sm font-light leading-relaxed">
+                                "Hearing you laugh is my absolute favorite sound in the whole universe. It resets my mood instantantly and turns bad days into beautiful ones."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="perspective-1000 h-64 cursor-pointer group" onclick="flipCard(this)">
+                    <div class="transform-style-3d relative w-full h-full rounded-2xl shadow-md group-hover:shadow-xl transition-shadow">
+                        <!-- Front -->
+                        <div class="backface-hidden absolute inset-0 glass-card rounded-2xl p-6 flex flex-col justify-between items-center text-center border-2 border-rose-100">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mt-4">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-slate-800">Your Strength</h3>
+                                <p class="text-xs text-rose-400 mt-1 uppercase tracking-wider font-semibold">Tap to turn over</p>
+                            </div>
+                            <span class="text-xs text-slate-400">Card 05</span>
+                        </div>
+                        <!-- Back -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 bg-gradient-to-br from-emerald-600 to-teal-600 text-white rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-3">
+                            <i class="fa-solid fa-quote-left text-2xl text-emerald-200"></i>
+                            <p class="text-sm font-light leading-relaxed">
+                                "You possess a quiet resilience and grace that inspires me every day. Watching you grow into this incredible 21-year-old woman leaves me in awe."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="perspective-1000 h-64 cursor-pointer group" onclick="flipCard(this)">
+                    <div class="transform-style-3d relative w-full h-full rounded-2xl shadow-md group-hover:shadow-xl transition-shadow">
+                        <!-- Front -->
+                        <div class="backface-hidden absolute inset-0 glass-card rounded-2xl p-6 flex flex-col justify-between items-center text-center border-2 border-rose-100">
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mt-4">
+                                <i class="fa-solid fa-infinity"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold text-slate-800">Our Future Together</h3>
+                                <p class="text-xs text-rose-400 mt-1 uppercase tracking-wider font-semibold">Tap to turn over</p>
+                            </div>
+                            <span class="text-xs text-slate-400">Card 06</span>
+                        </div>
+                        <!-- Back -->
+                        <div class="backface-hidden rotate-y-180 absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-700 text-white rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-3">
+                            <i class="fa-solid fa-quote-left text-2xl text-indigo-200"></i>
+                            <p class="text-sm font-light leading-relaxed">
+                                "21 is just the beginning of your best chapters. I feel so incredibly lucky that I get to hold your hand through all of them."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: "Open When..." Digital Love Letters Section -->
+        <section id="open-when" class="space-y-8 scroll-mt-10">
+            <div class="text-center space-y-2">
+                <span class="text-xs uppercase tracking-widest text-rose-500 font-semibold">Always Here For You</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">"Open When..." Letters</h2>
+                <p class="text-slate-500 text-sm md:text-base max-w-lg mx-auto">
+                    Whenever you need comfort, reassuring words, or just a reminder of how much I care, click an envelope below.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <!-- Letter Envelope 1 -->
+                <button onclick="openModal('miss-me')" class="glass-card hover:bg-white/90 transition-all p-6 rounded-2xl text-left border border-rose-100 shadow-sm hover:shadow-md flex items-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-envelope-heart"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-semibold text-lg text-slate-800 group-hover:text-rose-600 transition-colors">Open when you miss me...</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Click to read a quick hug in letter form.</p>
+                    </div>
+                </button>
+
+                <!-- Letter Envelope 2 -->
+                <button onclick="openModal('overwhelmed')" class="glass-card hover:bg-white/90 transition-all p-6 rounded-2xl text-left border border-rose-100 shadow-sm hover:shadow-md flex items-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-semibold text-lg text-slate-800 group-hover:text-rose-600 transition-colors">Open when you feel overwhelmed...</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Take a deep breath and open this gentle reminder.</p>
+                    </div>
+                </button>
+
+                <!-- Letter Envelope 3 -->
+                <button onclick="openModal('need-smile')" class="glass-card hover:bg-white/90 transition-all p-6 rounded-2xl text-left border border-rose-100 shadow-sm hover:shadow-md flex items-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-face-smile-wink"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-semibold text-lg text-slate-800 group-hover:text-rose-600 transition-colors">Open when you need a smile...</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">A sweet note to brighten up your mood.</p>
+                    </div>
+                </button>
+
+                <!-- Letter Envelope 4 -->
+                <button onclick="openModal('unappreciated')" class="glass-card hover:bg-white/90 transition-all p-6 rounded-2xl text-left border border-rose-100 shadow-sm hover:shadow-md flex items-center gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-semibold text-lg text-slate-800 group-hover:text-rose-600 transition-colors">Open when you feel doubt or unseen...</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">For moments when you need to remember your worth.</p>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Feature 3: Memory Gallery Grid -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">Moments With You</h2>
+                <p class="text-slate-500 text-sm md:text-base">Snapshots of our journey into your 21st year.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Memory Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl glass-card border border-rose-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" alt="Romantic Memory" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF0F5/881337?text=Our+Special+Memory';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="font-serif text-lg font-semibold">Your Beautiful Smile</span>
+                        <p class="text-xs text-rose-200 mt-1">My absolute favorite view in the entire world.</p>
+                    </div>
+                </div>
+
+                <!-- Memory Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl glass-card border border-rose-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Holding Hands" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF0F5/881337?text=Holding+Hands';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="font-serif text-lg font-semibold">Side by Side</span>
+                        <p class="text-xs text-rose-200 mt-1">Every step with you feels like home.</p>
+                    </div>
+                </div>
+
+                <!-- Memory Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl glass-card border border-rose-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" alt="Sweet Moment" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF0F5/881337?text=Unforgettable+Moments';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="font-serif text-lg font-semibold">Celebrating 21</span>
+                        <p class="text-xs text-rose-200 mt-1">Here is to a lifetime of celebrating you.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-slate-400 italic">
+                (Tip: You can easily replace these photo links in the index.html file with direct links to your own photos!)
+            </p>
+        </section>
+
+        <!-- Personal Closing Letter -->
+        <section class="glass-card-dark text-white rounded-3xl p-8 md:p-12 space-y-6 text-center border border-rose-300/30 shadow-2xl relative">
+            <div class="max-w-2xl mx-auto space-y-4">
+                <i class="fa-solid fa-crown text-3xl text-amber-300"></i>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-rose-100">Happy 21st Birthday, My Dearest Wife</h2>
+                <p class="font-light text-rose-100/90 leading-relaxed text-sm md:text-base">
+                    Even though your exact birthday date passed a few days ago, my commitment to making you feel loved never pauses. 
+                    Turning 21 is a huge milestone, and I hope this year brings you all the peace, happiness, and success you deserve. 
+                    I am so proud of the woman you are, and I am so grateful to walk through life as your husband.
+                </p>
+                <div class="pt-4 font-script text-3xl text-amber-200">
+                    Forever & Always Yours ❤️
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-slate-400 text-xs py-6 space-y-2">
+            <p>Made with all my heart for my wonderful wife's 21st Birthday ✨</p>
+        </footer>
+    </div>
+
+    <!-- Modals for "Open When..." Letters -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4" onclick="closeModal()">
+        
+        <div id="modal-card" class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl border border-rose-100 transform scale-95 transition-transform duration-300 relative text-slate-800" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-500 hover:text-rose-600 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="modal-content" class="space-y-4">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions & Logic -->
+    <script>
+        // --- 1. Floating Canvas Particles (Hearts & Sparkles) ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.size = Math.random() * 12 + 8;
+                this.speedY = Math.random() * 1 + 0.4;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.type = Math.random() > 0.4 ? 'heart' : 'sparkle';
+                this.color = ['#f472b6', '#fb7185', '#f43f5e', '#fbbf24'][Math.floor(Math.random() * 4)];
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < -20) {
+                    this.reset();
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                if (this.type === 'heart') {
+                    ctx.font = `${this.size}px sans-serif`;
+                    ctx.fillText('♥', this.x, this.y);
+                } else {
+                    ctx.font = `${this.size * 0.8}px sans-serif`;
+                    ctx.fillText('✦', this.x, this.y);
+                }
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 35; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // --- 2. Flip Card Handler ---
+        function flipCard(cardContainer) {
+            const inner = cardContainer.querySelector('.transform-style-3d');
+            inner.classList.toggle('rotate-y-180');
+            playSoftTone(440, 0.05);
+        }
+
+        // --- 3. "Open When..." Modal Logic ---
+        const letters = {
+            'miss-me': {
+                title: "Open When You Miss Me...",
+                icon: "fa-envelope-heart",
+                color: "text-rose-500",
+                text: "My love, distance or busy schedules can never change how close you are to my heart. Close your eyes for a second, take a slow deep breath, and remember that I am thinking about you right this moment. You are my home, and I can't wait to hold you in my arms again soon."
+            },
+            'overwhelmed': {
+                title: "Open When You Feel Overwhelmed...",
+                icon: "fa-cloud-sun",
+                color: "text-amber-500",
+                text: "Take a pause right now. You don't have to figure everything out all at once. You are so much stronger than you give yourself credit for, but you also don't have to carry the weight alone. Lean on me whenever you need to. Step by step, we've got this together."
+            },
+            'need-smile': {
+                title: "Open When You Need A Smile...",
+                icon: "fa-face-smile-wink",
+                color: "text-pink-500",
+                text: "Here is a gentle reminder: You have the most breathtaking smile in the world! Just thinking about your sweet laugh makes my entire day brighter. Whatever is going on right now, remember that you are deeply loved, incredibly funny, and absolute magic to be around."
+            },
+            'unappreciated': {
+                title: "Open When You Feel Doubt or Unseen...",
+                icon: "fa-sparkles",
+                color: "text-purple-500",
+                text: "If you ever feel like your hard work goes unnoticed, please let me remind you: I see you. I see how caring, beautiful, and thoughtful you are every single day. Turning 21 is a reflection of how far you've come. Never let a tough moment make you forget how irreplaceable you are."
+            }
+        };
+
+        function openModal(key) {
+            const data = letters[key];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="text-center space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-rose-50 ${data.color} flex items-center justify-center text-3xl mx-auto shadow-inner">
+                        <i class="fa-solid ${data.icon}"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-slate-900">${data.title}</h3>
+                </div>
+                <div class="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 my-4">
+                    <p class="font-serif text-slate-700 leading-relaxed text-base italic">
+                        "${data.text}"
+                    </p>
+                </div>
+                <div class="text-center">
+                    <button onclick="closeModal()" class="px-6 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-sm font-medium transition-colors shadow-md">
+                        Close Letter ❤️
+                    </button>
+                </div>
+            `;
+
+            const backdrop = document.getElementById('modal-backdrop');
+            const card = document.getElementById('modal-card');
+
+            backdrop.classList.remove('hidden');
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }, 10);
+
+            playSoftTone(523.25, 0.08);
+        }
+
+        function closeModal() {
+            const backdrop = document.getElementById('modal-backdrop');
+            const card = document.getElementById('modal-card');
+
+            backdrop.classList.add('opacity-0');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+            }, 300);
+        }
+
+        // --- 4. Smooth Scroll Helper ---
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- 5. Optional Gentle Web Audio Tone Effect ---
+        function playSoftTone(freq, duration) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+<!-- ... existing code -->
+```
